@@ -110,15 +110,13 @@
         <p>A few moments, kept close.</p>
       </div>
       <div class="film-label"><span>ROLL Nº 01</span><span>AHMED × MENNA</span><span>♥</span></div>
+      <!-- Photos for these 4 slots are set in script.js → MEMORY_PHOTOS (no upload needed). -->
       <div class="memory-grid" id="memoryGrid">
         <button class="memory memory-tall" data-memory="0"><span class="photo-placeholder"><b>01</b><small>ADD YOUR PHOTO</small></span><span class="memory-caption">A moment to keep <i>♡</i></span></button>
         <button class="memory memory-wide" data-memory="1"><span class="photo-placeholder"><b>02</b><small>ADD YOUR PHOTO</small></span><span class="memory-caption">Just us, being us <i>♡</i></span></button>
         <button class="memory" data-memory="2"><span class="photo-placeholder"><b>03</b><small>ADD YOUR PHOTO</small></span><span class="memory-caption">The little things <i>♡</i></span></button>
         <button class="memory" data-memory="3"><span class="photo-placeholder"><b>04</b><small>ADD YOUR PHOTO</small></span><span class="memory-caption">My favorite view <i>♡</i></span></button>
       </div>
-      <label class="upload-btn" for="photoUpload">＋ Add your photos</label>
-      <input id="photoUpload" type="file" accept="image/*" multiple hidden>
-      <p class="upload-hint">Choose photos from your phone to preview them in this gallery.</p>
     </section>
 
     <section class="song-section section reveal" id="song">
@@ -132,11 +130,11 @@
             <source src="music/our-song.mp3" type="audio/mpeg">
             Your browser does not support audio playback.
           </audio>
-          <button class="mf-photo" id="mennaPhotoBtn" type="button" aria-label="Her photo">
-            <img id="mennaPhoto" src="photos/menna.jpg" alt="Menna">
+          <!-- Her photo is set in script.js → MENNA_PHOTO (no upload needed). -->
+          <div class="mf-photo" id="mennaPhotoBtn">
+            <img id="mennaPhoto" alt="Menna">
             <span class="mf-placeholder"><b>M</b><small>ADD HER PHOTO</small></span>
-          </button>
-          <input id="mennaPhotoInput" type="file" accept="image/*" hidden>
+          </div>
           <img class="mf-bg" src="assets/music-frame.png" alt="" aria-hidden="true">
           <div class="mf-title"><strong>Youm Matabelna</strong><span>Ahmed ♡ Menna · our song</span></div>
           <div class="mf-progress">

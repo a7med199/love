@@ -1,3 +1,24 @@
+/* ============================================================
+   PHOTOS — edit these paths to change the pictures.
+   Put the image files inside the /photos folder.
+   ============================================================ */
+
+// "Memories" section — 4 slots, in order (01, 02, 03, 04).
+// Recommended size: 1200 x 1200 px (square), JPG, under ~400 KB each.
+// Leave a slot as "" to keep the "ADD YOUR PHOTO" placeholder.
+const MEMORY_PHOTOS = [
+  "photos/1.jpg",
+  "photos/2.jpg",
+  "photos/3.jpg",
+  "photos/4.jpg"
+];
+
+// "Our song" music frame — her photo.
+// Recommended size: 1080 x 1080 px (exact square), JPG.
+const MENNA_PHOTO = "photos/5.jpg";
+
+/* ============================================================ */
+
 const START_DATE = new Date(2026, 7, 25);
 const daysEl=document.getElementById("daysTogether"),hoursEl=document.getElementById("hoursTogether"),minsEl=document.getElementById("minsTogether"),secsEl=document.getElementById("secsTogether");
 const noteEl=document.getElementById("counterNote");
@@ -28,22 +49,35 @@ seekBar.addEventListener("input",()=>{const dur=ourSong.duration;seekBar.style.s
 volBar.addEventListener("input",()=>{ourSong.volume=volBar.value/100;volBar.style.setProperty("--p",volBar.value+"%")});volBar.style.setProperty("--p","100%");
 document.getElementById("skipBack").addEventListener("click",()=>{ourSong.currentTime=Math.max(0,ourSong.currentTime-10)});
 document.getElementById("skipFwd").addEventListener("click",()=>{const d=ourSong.duration;ourSong.currentTime=isFinite(d)?Math.min(d-.5,ourSong.currentTime+10):ourSong.currentTime+10});
-const mennaBtn=document.getElementById("mennaPhotoBtn"),mennaImg=document.getElementById("mennaPhoto"),mennaInput=document.getElementById("mennaPhotoInput");
-function checkMennaPhoto(){mennaBtn.classList.toggle("no-photo",!(mennaImg.complete&&mennaImg.naturalWidth>0))}
-mennaImg.addEventListener("error",()=>mennaBtn.classList.add("no-photo"));mennaImg.addEventListener("load",()=>mennaBtn.classList.remove("no-photo"));checkMennaPhoto();
-mennaBtn.addEventListener("click",()=>{if(mennaBtn.classList.contains("no-photo"))mennaInput.click()});
-mennaInput.addEventListener("change",()=>{const f=mennaInput.files[0];if(f&&f.type.startsWith("image/")){mennaImg.src=URL.createObjectURL(f);showToast("Photo added for this visit ♡")}mennaInput.value=""});
+
+/* Her photo in the music frame (set from MENNA_PHOTO above) */
+const mennaBtn=document.getElementById("mennaPhotoBtn"),mennaImg=document.getElementById("mennaPhoto");
+mennaBtn.classList.add("no-photo");
+mennaImg.addEventListener("load",()=>mennaBtn.classList.remove("no-photo"));
+mennaImg.addEventListener("error",()=>mennaBtn.classList.add("no-photo"));
+if(MENNA_PHOTO)mennaImg.src=MENNA_PHOTO;
+
 document.getElementById("musicJump").addEventListener("click",()=>{document.getElementById("song").scrollIntoView({behavior:"smooth"});toggleOurSong()});
 function openStory(){playOurSong();document.getElementById("letter").scrollIntoView({behavior:"smooth"})}
 document.getElementById("openLetter").addEventListener("click",openStory);
 document.getElementById("envelopeBtn").addEventListener("click",openStory);
 const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
-const photoInput=document.getElementById("photoUpload"),memoryButtons=[...document.querySelectorAll(".memory")],modal=document.getElementById("photoModal"),modalImage=document.getElementById("modalImage"),modalCaption=document.getElementById("modalCaption");
+
+/* Memories gallery (photos come from MEMORY_PHOTOS above) */
+const memoryButtons=[...document.querySelectorAll(".memory")],modal=document.getElementById("photoModal"),modalImage=document.getElementById("modalImage"),modalCaption=document.getElementById("modalCaption");
+memoryButtons.forEach((b,i)=>{
+  const src=MEMORY_PHOTOS[i],holder=b.querySelector(".photo-placeholder");
+  if(!src)return;
+  const img=new Image();
+  img.alt="A memory of Ahmed and Menna";
+  img.onload=()=>holder.replaceChildren(img); // only swaps in if the file really exists
+  img.src=src;
+});
 function closeModal(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true")}
 document.getElementById("closeModal").addEventListener("click",closeModal);modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
-memoryButtons.forEach(b=>b.addEventListener("click",()=>{const img=b.querySelector("img");if(!img){photoInput.click();return}modalImage.src=img.src;modalCaption.textContent=b.querySelector(".memory-caption").textContent;modal.classList.add("open");modal.setAttribute("aria-hidden","false")}));
-photoInput.addEventListener("change",()=>{const chosen=[...photoInput.files].filter(f=>f.type.startsWith("image/"));chosen.slice(0,12).forEach((file,i)=>{const target=memoryButtons[i%memoryButtons.length],placeholder=target.querySelector(".photo-placeholder"),img=document.createElement("img");img.alt="A memory of Ahmed and Menna";img.src=URL.createObjectURL(file);placeholder.replaceChildren(img)});if(chosen.length)showToast(`${chosen.length} photo${chosen.length>1?"s":""} added for this visit ♡`);photoInput.value=""});
+memoryButtons.forEach(b=>b.addEventListener("click",()=>{const img=b.querySelector("img");if(!img)return;modalImage.src=img.src;modalCaption.textContent=b.querySelector(".memory-caption").textContent;modal.classList.add("open");modal.setAttribute("aria-hidden","false")}));
+
 document.getElementById("yesBtn").addEventListener("click",()=>{document.getElementById("answerMessage").textContent="Then let's make a thousand more memories. ♡";burstHearts(12)});
 document.getElementById("secretBtn").addEventListener("click",()=>{document.getElementById("answerMessage").textContent="Psst... you're my favorite notification. Always. ♥";burstHearts(5)});
 document.getElementById("heartButton").addEventListener("click",()=>{burstHearts(8);showToast("A little love sent to Menna ♡")});
