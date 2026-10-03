@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#310b16">
+  <meta name="description" content="A little place for Ahmed and Menna, and all the moments that became our story.">
+  <title>Ahmed & Menna — Our Little Story</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Parisienne&family=Cinzel:wght@400;500;600&family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#home">A <span>♡</span> M</a>
+    <button class="music-mini" id="musicJump" aria-label="Play or pause our song">♫ <span id="musicButtonLabel">Play our song</span></button>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-kicker"><span class="tiny-star">✦</span> A LITTLE PLACE FOR US <span class="tiny-star">✦</span></div>
+      <p class="script hero-pretitle">to my favorite person</p>
+      <h1 class="sr-only">A little place for us</h1>
+      <button class="envelope-btn" id="envelopeBtn" aria-label="Open it — open our story"><img src="assets/envelope.png" alt="A burgundy envelope sealed with a gold heart wax seal"></button>
+      <p class="hero-copy">Some stories feel like home.<br><span>Ours is my favorite one.</span></p>
+      <button class="primary-btn" id="openLetter">Open our story <span>↗</span></button>
+      <div class="hero-date">EST. 25 · 08 · 2026</div>
+      <div class="hero-stamp" aria-hidden="true"><span>MADE WITH</span><b>LOVE</b><span>ALWAYS</span></div>
+      <div class="hero-decoration decor-one">♡</div><div class="hero-decoration decor-two">✳</div>
+    </section>
+
+    <section class="intro section reveal" id="letter">
+      <div class="letter-paper">
+        <img class="lp-top" src="assets/paper-top.png" alt="" aria-hidden="true">
+        <div class="lp-mid">
+          <span class="eyebrow">A NOTE FOR YOU</span>
+          <h2>To my favorite<br><i>hello.</i></h2>
+          <p>Menna,</p>
+          <p>I don't know how one person can turn ordinary days into memories I want to keep forever. But somehow, you do.</p>
+          <p>This little corner of the internet is for us — for the laughs, the little moments, the big memories, and all the chapters still waiting for us.</p>
+          <p class="script signoff">Always yours, Ahmed</p>
+          <span class="paper-number">01 / A LETTER</span>
+        </div>
+        <img class="lp-bot" src="assets/paper-bottom.png" alt="" aria-hidden="true">
+      </div>
+    </section>
+
+    <section class="counter-section section reveal">
+      <div class="section-heading">
+        <span class="eyebrow">A LITTLE COUNTING</span>
+        <h2>Every day, <i>more us.</i></h2>
+        <p>Since the day our story began.</p>
+      </div>
+      <div class="love-counter" aria-label="Time since August 25, 2026">
+        <div class="lc-pill">Together since August 25, 2026</div>
+        <h3 class="lc-title">Every Second With You</h3>
+        <div class="lc-grid">
+          <div class="lc-box"><b id="daysTogether">0</b><span>Days</span></div>
+          <div class="lc-box"><b id="hoursTogether">0</b><span>Hours</span></div>
+          <div class="lc-box"><b id="minsTogether">0</b><span>Mins</span></div>
+          <div class="lc-box"><b id="secsTogether">0</b><span>Secs</span></div>
+        </div>
+      </div>
+      <p class="small-note" id="counterNote"></p>
+    </section>
+
+    <section class="story-section section reveal" id="story">
+      <div class="section-heading">
+        <span class="eyebrow">CHAPTERS OF US</span>
+        <h2>Our little <i>timeline.</i></h2>
+        <p>Every love story has its little moments.</p>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-marker">♡</div>
+          <div class="timeline-card">
+            <span class="timeline-date">25 AUGUST 2026</span>
+            <h3>The beginning</h3>
+            <p>The date our story began. One little moment that became something so special.</p>
+            <span class="script timeline-caption">chapter one ✧</span>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-marker">✦</div>
+          <div class="timeline-card">
+            <span class="timeline-date">A DAY TO REMEMBER</span>
+            <h3>Our first favorite memory</h3>
+            <p>Add the story of your first date, first laugh, or the moment you knew this was different.</p>
+            <span class="script timeline-caption">the kind of day you replay</span>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-marker">♡</div>
+          <div class="timeline-card">
+            <span class="timeline-date">THE CHAPTER AHEAD</span>
+            <h3>To be continued...</h3>
+            <p>More places, more pictures, more silly moments, and a thousand reasons to smile.</p>
+            <span class="script timeline-caption">our story is still being written</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="memories-section section reveal" id="memories">
+      <div class="section-heading">
+        <span class="eyebrow">LITTLE PIECES OF FOREVER</span>
+        <h2>Our <i>memories.</i></h2>
+        <p>A few moments, kept close.</p>
+      </div>
+      <div class="film-label"><span>ROLL Nº 01</span><span>AHMED × MENNA</span><span>♥</span></div>
+      <div class="memory-grid" id="memoryGrid">
+        <button class="memory memory-tall" data-memory="0"><span class="photo-placeholder"><b>01</b><small>ADD YOUR PHOTO</small></span><span class="memory-caption">A moment to keep <i>♡</i></span></button>
+        <button class="memory memory-wide" data-memory="1"><span class="photo-placeholder"><b>02</b><small>ADD YOUR PHOTO</small></span><span class="memory-caption">Just us, being us <i>♡</i></span></button>
+        <button class="memory" data-memory="2"><span class="photo-placeholder"><b>03</b><small>ADD YOUR PHOTO</small></span><span class="memory-caption">The little things <i>♡</i></span></button>
+        <button class="memory" data-memory="3"><span class="photo-placeholder"><b>04</b><small>ADD YOUR PHOTO</small></span><span class="memory-caption">My favorite view <i>♡</i></span></button>
+      </div>
+      <label class="upload-btn" for="photoUpload">＋ Add your photos</label>
+      <input id="photoUpload" type="file" accept="image/*" multiple hidden>
+      <p class="upload-hint">Choose photos from your phone to preview them in this gallery.</p>
+    </section>
+
+    <section class="song-section section reveal" id="song">
+      <div class="song-card">
+        <div class="song-topline"><span>THE SOUNDTRACK OF US</span><span>♫</span></div>
+        
+        <h2>Our <i>song.</i></h2>
+        <p class="song-copy">Some songs just feel like a memory.</p>
+        <div class="music-frame" id="musicFrame">
+          <audio id="ourSong" preload="auto" loop>
+            <source src="music/our-song.mp3" type="audio/mpeg">
+            Your browser does not support audio playback.
+          </audio>
+          <button class="mf-photo" id="mennaPhotoBtn" type="button" aria-label="Her photo">
+            <img id="mennaPhoto" src="photos/menna.jpg" alt="Menna">
+            <span class="mf-placeholder"><b>M</b><small>ADD HER PHOTO</small></span>
+          </button>
+          <input id="mennaPhotoInput" type="file" accept="image/*" hidden>
+          <img class="mf-bg" src="assets/music-frame.png" alt="" aria-hidden="true">
+          <div class="mf-title"><strong>Youm Matabelna</strong><span>Ahmed ♡ Menna · our song</span></div>
+          <div class="mf-progress">
+            <input type="range" id="seekBar" min="0" max="1000" value="0" step="1" aria-label="Song progress">
+            <div class="mf-times"><span id="timeNow">0:00</span><span id="timeLeft">-0:00</span></div>
+          </div>
+          <div class="mf-controls">
+            <button type="button" id="skipBack" aria-label="Back 10 seconds"><svg viewBox="0 0 48 32"><path d="M23 4v24L5 16zM46 4v24L28 16z"/></svg></button>
+            <button type="button" class="audio-play" id="audioPlay" aria-label="Play our song">
+              <svg class="i-play" viewBox="0 0 32 40"><path d="M4 3v34l26-17z"/></svg>
+              <svg class="i-pause" viewBox="0 0 32 40"><rect x="3" y="2" width="9" height="36" rx="2"/><rect x="20" y="2" width="9" height="36" rx="2"/></svg>
+            </button>
+            <button type="button" id="skipFwd" aria-label="Forward 10 seconds"><svg viewBox="0 0 48 32"><path d="M2 4v24l18-12zM25 4v24l18-12z"/></svg></button>
+          </div>
+          <div class="mf-volume">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9z"/></svg>
+            <input type="range" id="volBar" min="0" max="100" value="100" aria-label="Volume">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9z"/><path d="M15 8.5a5 5 0 0 1 0 7M17.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <p class="audio-hint">Press play, or open our letter to start the music. ♡</p>
+      </div>
+    </section>
+
+    <section class="little-things section reveal">
+      <div class="section-heading">
+        <span class="eyebrow">A TINY QUESTION</span>
+        <h2>Do you know <i>something?</i></h2>
+      </div>
+      <div class="question-card">
+        <span class="question-heart">♡</span>
+        <p class="script">A question for Menna...</p>
+        <h3>Would you choose<br>our story all over again?</h3>
+        <div class="answer-buttons">
+          <button id="yesBtn" class="yes-btn">A million times, yes ♡</button>
+          <button id="secretBtn" class="text-btn">A little secret</button>
+        </div>
+        <p id="answerMessage" class="answer-message" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="final-note section reveal">
+      <div class="final-ornament">✳</div>
+      <p class="script">and if I had to choose again...</p>
+      <h2>I'd still find<br><i>my way to you.</i></h2>
+      <p class="final-names">AHMED <span>♡</span> MENNA</p>
+      <p class="final-date">25 · 08 · 2026 — FOREVER IN PROGRESS</p>
+    </section>
+  </main>
+
+  <footer><span>MADE WITH LOVE, JUST FOR MENNA</span><button id="heartButton" aria-label="Send a heart">♡</button><span>AHMED × MENNA</span></footer>
+
+  <div class="modal" id="photoModal" aria-hidden="true">
+    <button class="modal-close" id="closeModal" aria-label="Close">×</button>
+    <img id="modalImage" alt="A memory of Ahmed and Menna">
+    <p id="modalCaption"></p>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
